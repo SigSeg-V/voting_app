@@ -1,19 +1,13 @@
 
 class ProductList extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            products: [],
-        };
-        this.handleProductUpVote = this.handleProductUpVote.bind(this);
-    }
+    state = {products: [],};
 
     componentDidMount = () => this.setState({products: Seed.products})
 
     handleProductUpVote = (productId) => {
         const nextProducts = this.state.products.map((product) =>{
-            if (product.id == productId){
+            if (product.id === productId){
                 return(
                     Object.assign({}, product, {votes: product.votes + 1})
                 );
@@ -73,7 +67,7 @@ class Product extends React.Component {
             </div>
             <div className="extra">
                 <span>Submitted by: </span>
-                <img src={this.props.submitterAvatarUrl} className="ui avatar image"/>
+                <img src={this.props.submitterAvatarUrl} className="ui avatar image" alt=""/>
             </div>
         </div>
     </div>
